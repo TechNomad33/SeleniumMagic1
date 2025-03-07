@@ -1,0 +1,47 @@
+What is headless testing?
+headless browser and why do we use them?
+Running a UI test on a headless browser
+The browser doesn't have a GUI or user interface, so it's not actually rendering the page visually for us.
+The advantage is when we run our tests and we don't have to wait for everything to load up on that page
+in order to continue our tests so there's lots that are going on behind the scenes to 
+load all those images up and present that to the user 
+Tests ofetn run faster in a headless browsers and are less flaky
+Less things that can go wrong
+More robust
+now the trade off is : 
+
+
+Updating capabilites to use headless mode
+"headless": true,
+"build": "Headless Build",
+Running our tests again on LambdaTest in headless mode
+
+## Parameterization:
+What is Parameterization?
+Why and when to use parameterized tests:
+enables to use a single test and run it multiple times but for different data inputs
+Scenario: if there are two tests very very similar but the difference is the input text 
+that we are using to add to our to-do list
+To remove the duplication and resue it again and again
+If code chanes in future we only need to change in few places not all over
+
+Another place we use parameterization is browser, on dfiiferent platform we 
+use capabilities to define which browser or which OS we need to use, browser version on 
+any specific test
+We use parameterization to loop over our to-do test multiple times for different browsers
+
+Creating a new parameterized test
+In mocha we have various packages that we can install which allows us to utilize parameterization 
+and additional functionality in order to enhance our tests 
+using foreach functionality which will wrap around it block
+
+
+tests.forEach(({args, expected}) => {
+    it(`correctly adds ${args.length} args`, function () {
+      const res = add(args);
+      assert.strictEqual(res, expected);
+    });
+  });
+
+
+Running on lambda test

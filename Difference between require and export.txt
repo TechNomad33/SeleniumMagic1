@@ -1,0 +1,33 @@
+Modules are a way to split an application into separate files instead of having all of your application in one file. This concept is also present in other languages with minor differences in syntax and behavior, like C's include, Python's import, and so on.
+One big difference between Node.js modules and browser JavaScript is how one script's code is accessed from another script's code.
+In browser JavaScript, scripts are added via the <script> element. When they execute, they all have direct access to the global scope, a "shared space" among all scripts. Any script can freely define/modify/remove/call anything on the global scope.
+In Node.js, each module has its own scope. A module cannot directly access things defined in another module unless it chooses to expose them. To expose things from a module, they must be assigned to exports or module.exports. For a module to access another module's exports or module.exports, it must use require().
+
+In your code, var pg = require('pg'); loads the pg module, a PostgreSQL client for Node.js. This allows your code to access functionality of the PostgreSQL client's APIs via the pg variable.
+require(), module.exports and exports are APIs of a module system that is specific to Node.js. Browsers do not implement this module system.
+In this function, you will pass the location name as an argument. Here is the general syntax:
+
+const varName = require(locationName);
+Suppose you have a CommonJS module that exports a function *getFullName* as seen below:
+
+// utils.js
+const getFullName = (firstname, lastName) => {
+    return `My fullname is ${firstname} ${lastName}`;
+};
+module.exports = getFullName;
+Then you can use the require() function to use/include this module within your JavaScript file:
+
+// index.js
+const getFullName = require('./utils.js');
+console.log(getFullName('John', 'Doe')); // My fullname is John Doe
+The module is located within a local file in the above code, which is why the local address is referenced using the file name.
+
+But in a situation when you want to include an external module from the web, then you make use of the web-based location:
+
+const myVar = require('http://web-module.location');
+
+require() vs import() Functions
+The require and import functions/statements are used to include modules within your JavaScript file, but they possess some differences. The two major differences are:
+
+The require() function can be called from anywhere within the program, whereas import() cannot be called conditionally. It always runs at the beginning of the file.
+To include a module with the require() function, that module must be saved with a .js extension instead of .mjs when the import() statement is used.

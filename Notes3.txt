@@ -1,0 +1,13 @@
+Reporting:
+What is Mochawesome: brief overview
+Its a node package which enables us to create custom reports specifically for the mocha test framework. 
+
+Adding Mochawesome to project: Installing and setting up
+npm install mochawesome
+Update the script
+"test": "mocha --no-timeouts --parallel --reporter mochawesome --require mochawesome/register"
+"test": "mocha --no-timeouts --parallel --reporter mochawesome --require mochawesome/register --reporter-option reportDir=customReportDir,reportFilename=customReportFilename"
+It will generate new directory --reporter mochawesome --reporter-options reportDir=customReportDir,reportFilename=customReportFilename
+
+Viewing the output: running our test in parallel using mocha 
+It will generate new directory, where you can see the report 

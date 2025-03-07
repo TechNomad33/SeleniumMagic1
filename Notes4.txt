@@ -1,0 +1,14 @@
+Intro to LambdaTest: features
+
+Advantages of using LambdaTest: What are the main benfits of using it 
+
+Fetching username and accesskey: 
+Where to get your username & access key on the lambda test portal
+
+Desired capabilities:
+Using the lambdatest capabilities genetors
+
+Running tests on lambdatest selenium grid
+
+
+https://automation.lambdatest.com/test?build=28132153&selectedTab=home&testID=HNEC7-2XGXS-BVMIO-Y26SL

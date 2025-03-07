@@ -1,0 +1,21 @@
+What is Parallelisation?
+The what's and why's of test Parallelisation:
+A way of running multiple tests at the same time 
+There are two ways to run your test, either serially or parallely
+serial will work like first one has to be done before sttarting the second one
+parallel means running multiple tests simultaneouly
+Pros: Increased speed, reduce feedback loop
+Cons: 
+It's good practice to ensure that each of your tests is completely independent of all other 
+It should not rely on the result of any test or data created by any other tests on its own without
+having to run our testing parallel
+No data conflicts and tests will be able to run regardeless of which order it runs
+Also not running too many tests at the same time, to avaoid system overloading (solution: Set up the Config 
+to work out best for the use case needed in the test)
+
+Adding another test
+It block won't run tests in parallel
+
+Running our test in parallel using mocha
+Update the script add --parallel
+"test": "mocha --no-timeouts --parallel"
